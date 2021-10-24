@@ -6,31 +6,42 @@
 
 # *** Practice values ***
 A0 = "catinthehat"
-D0 = ["ca", "tin", "inth", "it", "ehat", "th"]
+D0 = {"ca", "tin", "inth", "it", "ehat", "th"}
 # build(A0, D0) returns true
 A1 = "ttttttttttt"
-D1 = ["g", "a", "t"]
+D1 = {"g", "a", "t"}
 # returns true
 A2 = "nowheretorunnow"
-D2 = ["this", "will", "return", "false"]
+D2 = {"this", "will", "return", "false"}
 # return false
-A3 = "ttttttttttttttttttttttttttttttttttty"
-D3 = ["g", "a", "t"]
+A3 = "yttttttttttttttttttttttttttttttttttt"
+D3 = {"g", "a", "t"}
 # return false
 
+# Arrays of probs for simpler testing
+As = [A0, A1, A2, A3]
+Ds = [D0, D1, D2, D3]
 
-# recursive solution
-def build(A, D):
-    if len(A) == 0:
+# Recursive alg with one arg, n
+def build(n):
+    if n == 0:
         return True
-    for i in D:
-        l = len(i)
-        if A[:l] == i:
-            if build(A[l:], D):
+    for i in range(n):
+        if A[i:n] in D:
+            if build(i):
                 return True
     return False
 
-As = [A0, A1, A2, A3]
-Ds = [D0, D1, D2, D3]
-for prob in range(4):
-    print(build(As[prob], Ds[prob]))
+def buildDP(n):
+
+    return True
+
+
+for rep in range(4):
+    A = As[rep]
+    D = Ds[rep]
+    print(build(len(A)))
+
+print("===================================")
+
+
