@@ -4,8 +4,10 @@ m = 10
 p = 10
 # moves = [M]
     # M = tuple (dx, dy, dz)
-moves = [(1, 0, 0), (0, 2, 0), (0, 0, 3)]
+# moves = [(1, 0, 0), (0, 2, 0), (0, 0, 3)]
+moves = [(3, 0, 0), (0, 3, 0), (0, 0, 3)]
 
+# visited = set(())
 visited = []
 
 
@@ -25,4 +27,8 @@ def traverse(loc):    # not sure if more inputs will be needed
         visited.append(loc)
         for move in moves:
             traverse((loc[0] + move[0], loc[1] + move[1], loc[2] + move[2]))
-        return
+        return visited
+
+temp = traverse((1, 1, 1))
+for i in temp:
+    print(i)
