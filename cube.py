@@ -1,4 +1,7 @@
 # n X m X p (board dimensions, integers)
+import numpy as np
+
+
 n = 10
 m = 10
 p = 10
@@ -28,6 +31,25 @@ def traverse(loc):    # not sure if more inputs will be needed
         for move in moves:
             traverse((loc[0] + move[0], loc[1] + move[1], loc[2] + move[2]))
         return visited
+
+
+def traverseDP(x, y, z):
+    global sol
+    global moves
+    global visited
+
+    sol = np.zeros(m+1, n+1, p+1)
+    for i in range(m+1):
+        for j in range(n+1):
+            for k in range(p+1):
+                sol[i, j, k] = False
+    
+    sol[x, y, z] = True
+
+
+
+
+
 
 temp = traverse((1, 1, 1))
 for i in temp:
